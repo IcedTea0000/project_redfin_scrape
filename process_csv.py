@@ -2,11 +2,12 @@ import csv
 import logging
 
 
-def extract_csv_to_list(file_path, csv_delimiter):
+def extract_csv_to_list(file_path, csv_delimiter=''):
     try:
         file = open(file_path, 'r')
         reader = csv.reader(file, delimiter=csv_delimiter, skipinitialspace=True)
         reader = list(reader)
+        reader.pop(0)
 
         # clean duplicate rows
         unique_data = []
